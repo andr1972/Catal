@@ -3,6 +3,7 @@ package com.borneq.usesevenzipjbind;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
+import net.sf.sevenzipjbinding.ArchiveFormat;
 import net.sf.sevenzipjbinding.ISevenZipInArchive;
 import net.sf.sevenzipjbinding.SevenZip;
 import net.sf.sevenzipjbinding.SevenZipException;
@@ -16,7 +17,8 @@ public class PrintCountOfItems {
             randomAccessFile = new RandomAccessFile(archiveFilename, "r");
             inArchive = SevenZip.openInArchive(null, // autodetect archive type
                     new RandomAccessFileInStream(randomAccessFile));
-
+            ArchiveFormat archiveFormat = inArchive.getArchiveFormat();
+            System.out.printf("%s --->", archiveFormat.toString());
             return inArchive.getNumberOfItems();
 
         } catch (Exception e) {
