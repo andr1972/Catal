@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import net.sf.sevenzipjbinding.SevenZip;
+import net.sf.sevenzipjbinding.SevenZipNativeInitializationException;
 import illegalargumentexception.console.TextDevice;
 import illegalargumentexception.console.TextDevices;
 
@@ -12,6 +14,13 @@ public class Main {
 	private static final TextDevice io = TextDevices.defaultTextDevice();
 	
 	public static void main(String[] args) {
+		try 
+		{
+            SevenZip.initSevenZipFromPlatformJAR();
+            System.out.println("7-Zip-JBinding library was initialized");
+        } catch (SevenZipNativeInitializationException e) {
+            e.printStackTrace();
+        }
 		scan(new File("c:\\temp"));
 	}
 
