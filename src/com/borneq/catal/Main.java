@@ -1,4 +1,4 @@
-package com.borneq.jcat;
+package com.borneq.catal;
 
 import java.util.*;
 import java.io.*;
