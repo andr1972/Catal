@@ -9,7 +9,7 @@ import net.sf.sevenzipjbinding.SevenZipException;
 import net.sf.sevenzipjbinding.impl.RandomAccessFileInStream;
 
 public class PrintCountOfItems {
-    public static void printCount(String archiveFilename) {
+    public static int getCount(String archiveFilename) {
         RandomAccessFile randomAccessFile = null;
         ISevenZipInArchive inArchive = null;
         try {
@@ -17,12 +17,10 @@ public class PrintCountOfItems {
             inArchive = SevenZip.openInArchive(null, // autodetect archive type
                     new RandomAccessFileInStream(randomAccessFile));
 
-            System.out.println("Count of items in archive: " 
-                    + inArchive.getNumberOfItems());
+            return inArchive.getNumberOfItems();
 
         } catch (Exception e) {
-            System.err.println("Error occurs: " + e);
-            System.exit(1);
+        	return -1;
         } finally {
             if (inArchive != null) {
                 try {

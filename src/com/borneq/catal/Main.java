@@ -19,8 +19,8 @@ public class Main {
         } catch (SevenZipNativeInitializationException e) {
             e.printStackTrace();
         }
-		PrintCountOfItems.printCount("d:\\sample7z\\do7z\\7z\\7zsfx.exe");
 		scan(new File("d:\\sample7z"));
+		System.out.printf("END");
 	}
 
 	private static void scan(File aStartingDir)
@@ -37,8 +37,11 @@ public class Main {
 		}
 		Collections.sort(dirList);
 		Collections.sort(fileList);
-		for(File file : fileList)
-			System.out.printf("%s\n",file.getPath());
+		for(File file : fileList) {
+			int cnt = PrintCountOfItems.getCount(file.getPath());
+			if (cnt>=0)
+				System.out.printf("%s %d\n",file.getPath(), cnt);
+		}
 		for(File file : dirList)
 			scan(file);
 	}
