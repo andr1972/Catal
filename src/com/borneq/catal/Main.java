@@ -2,6 +2,7 @@ package com.borneq.catal;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import illegalargumentexception.console.TextDevice;
@@ -26,6 +27,8 @@ public class Main {
 			else
 				fileList.add(file);		
 		}
+		Collections.sort(dirList);
+		Collections.sort(fileList);
 		for(File file : fileList)
 			io.printf("%s\n",file.getPath());			 
 	}
