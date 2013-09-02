@@ -30,6 +30,8 @@ public class Main {
 		Collections.sort(dirList);
 		Collections.sort(fileList);
 		for(File file : fileList)
-			io.printf("%s\n",file.getPath());			 
+			io.printf("%s\n",file.getPath());
+		for(File file : dirList)
+			scan(file);
 	}
 }
