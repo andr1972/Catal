@@ -1,3 +1,6 @@
+- autodetect archive type
+- multipart (rar) archive
+- archive in archive
 - proceed with empty dirs
 - write content to stream using BufferedOutputStream
 - read it and show in tree (SWT)

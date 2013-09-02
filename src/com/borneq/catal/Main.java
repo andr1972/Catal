@@ -5,15 +5,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.borneq.usesevenzipjbind.PrintCountOfItems;
+
 import net.sf.sevenzipjbinding.SevenZip;
 import net.sf.sevenzipjbinding.SevenZipNativeInitializationException;
-import illegalargumentexception.console.TextDevice;
-import illegalargumentexception.console.TextDevices;
 
 public class Main {
-	private static final TextDevice io = TextDevices.defaultTextDevice();
-	
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 		try 
 		{
             SevenZip.initSevenZipFromPlatformJAR();
@@ -21,7 +19,8 @@ public class Main {
         } catch (SevenZipNativeInitializationException e) {
             e.printStackTrace();
         }
-		scan(new File("c:\\temp"));
+		PrintCountOfItems.printCount("d:\\sample7z\\do7z\\7z\\7zsfx.exe");
+		scan(new File("d:\\sample7z"));
 	}
 
 	private static void scan(File aStartingDir)
@@ -39,7 +38,7 @@ public class Main {
 		Collections.sort(dirList);
 		Collections.sort(fileList);
 		for(File file : fileList)
-			io.printf("%s\n",file.getPath());
+			System.out.printf("%s\n",file.getPath());
 		for(File file : dirList)
 			scan(file);
 	}
