@@ -1,0 +1,3 @@
+- scan directory recursively
+- write content to stream using BufferedOutputStream
+- read it and show in tree (SWT)
